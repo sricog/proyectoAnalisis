@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Vandermonde
+{% endblock %}
+
+{% block content %}
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <style>
+    .form-container {
+      background-color: #fafafa;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      color: #fff;
+    }
+    .form-container h2 {
+      color: #000000;
+      text-align: center;
+    }
+    .form-container .form-group label{
+      color: #000000;
+    }
+    .form-container .btn-primary {
+      background-color: #f39c12;
+      border-color: #f39c12;
+    }
+    .form-container .btn-primary:hover {
+      background-color: #e68a00;
+      border-color: #e68a00;
+    }
+    .form-container .btn-primary:focus {
+      box-shadow: 0 0 0 0.2rem rgba(243, 156, 18, 0.5);
+    }
+    .form-container .form-control {
+      background-color: #f6f6f6;
+      border-color: #f39c12;
+    }
+    .form-container .form-control:focus {
+      background-color: #ffffff;
+      border-color: #e68a00;
+      box-shadow: none;
+    }
+    .form-container::before {
+      content: "";
+      background-size: cover;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      opacity: 0.1;
+      z-index: -1;
+    }
+    .custom-form {
+      background-color: #e6f7ff; /* Color de fondo personalizado */
+      padding: 20px; /* Espaciado interno para mayor claridad */
+      border-radius: 10px; /* Bordes redondeados */
+  }
+  </style>
+  <div class="container mt-5">
+        <div class="row">
+            <div class="col-lg-5 col-sm-12 mx-auto">
+                <div class="custom-form">
+                    <h2>Vandermonde</h2>
+                    <form method="POST">
+                      {% csrf_token %}
+                      <div class="form-group">
+                        <label for="input5">X:</label>
+                        <input type="text" name="x" class="form-control" id="input5" placeholder="Ingrese los valores de X ej(3 4 5)" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="input6">Y:</label>
+                        <input type="text" name="y" class="form-control" id="input6" placeholder="Ingrese los valores de Y ej(1 2 3)" required>
+                      </div>
+                      <button type="submit" class="mt-2 btn btn-primary">Al pelo</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-7 col-sm-12">
+                <div class="mb-1">
+                  {% if mensaje %}
+                    {{ mensaje }}
+                  {% endif %}
+                </div>
+                {% if grafica %}
+                <div class="mt-4">
+                  <h4 class="text-center">Gráfica</h4>
+                  <img style="position: relative; right: 20px; width: 600px;" src="{{ grafica }}">
+                </div>
+                {% endif %}
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

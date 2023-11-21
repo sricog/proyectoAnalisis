@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>
+        {% block title %}
+
+
+        {% endblock %}
+    </title>
+</head>
+<body class="d-flex flex-column min-vh-100">
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #f28686; font-size: 28px;">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <ul class="navbar-nav ms-auto" style="margin-right: 50px;">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="{% url 'menu' %}">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <img src="https://phantom-elmundo.unidadeditorial.es/e0631b5a437151bdc201b6792a0f4d10/f/jpg/assets/multimedia/imagenes/2019/05/14/15578455293413.jpg" style="width: 70px; height: 70px;" alt="El medallo">
+                        <img src="https://www.mundodeportivo.com/files/content_image_mobile_filter/uploads/2017/05/18/60e7dbb470588.jpeg" style="width: 70px; height: 70px;" alt="El tino">
+                        <img src="https://yt3.googleusercontent.com/lLwcDsXDCRV6pUTL_PmpBBdsEJ9XPVeJLXD71Rb1FAJUZTFh-HcNkTuGxRuiOcvkLEvDmV-b=s900-c-k-c0x00ffffff-no-rj" style="width: 70px; height: 70px;" alt="El dim">
+                        <img src="https://a.espncdn.com/combiner/i?img=/i/teamlogos/soccer/500/5264.png" style="width: 70px; height: 70px;" alt="El ver">
+                        <img src="data:image/jpeg;base64,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" style="width: 70px; height: 70px;" alt="El toro">
+                        <img src="https://i1.sndcdn.com/artworks-000573644333-pjplpp-t500x500.jpg" style="width: 70px; height: 70px;" alt="El deeznuts">
+                        <img src="https://pbs.twimg.com/media/EcsrdH5WoAEq8qt.jpg:large" style="width: 70px; height: 70px;" alt="El cola">
+                        <img src="https://pbs.twimg.com/media/FvUTT_0XwAEv9b7.png" style="width: 70px; height: 70px;" alt="El gregau">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThacB2e68MfEDvHvnNe23eE0TKwfh6uAsYpWJignioKn2Qilx3Y8l_Sag3pTlz89Dz7mw&usqp=CAU
+                        " style="width: 70px; height: 70px;" alt="El samsa">
+                        
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    {% for message in messages %}
+        <div class="alert alert-dismissible alert-primary d-flex justify-content-center" role="alert">
+        {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endfor %}
+
+    {% block content %}
+
+    {% endblock %}
+    
+</body>
+</html>

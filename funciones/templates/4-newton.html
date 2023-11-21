@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Newton
+{% endblock %}
+
+{% block content %}
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <style>
+    .form-container {
+      background-color: #fafafa;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      color: #fff;
+    }
+    .custom-form {
+      background-color: #e6f7ff; /* Color de fondo personalizado */
+      padding: 20px; /* Espaciado interno para mayor claridad */
+      border-radius: 10px; /* Bordes redondeados */
+  }
+    .form-container h2 {
+      color: #000000;
+      text-align: center;
+    }
+    .form-container .form-group label{
+      color: #000000;
+    }
+    .form-container .btn-primary {
+      background-color: #f39c12;
+      border-color: #f39c12;
+    }
+    .form-container .btn-primary:hover {
+      background-color: #e68a00;
+      border-color: #e68a00;
+    }
+    .form-container .btn-primary:focus {
+      box-shadow: 0 0 0 0.2rem rgba(243, 156, 18, 0.5);
+    }
+    .form-container .form-control {
+      background-color: #f6f6f6;
+      border-color: #f39c12;
+    }
+    .form-container .form-control:focus {
+      background-color: #ffffff;
+      border-color: #e68a00;
+      box-shadow: none;
+    }
+    .form-container::before {
+      content: "";
+      background-size: cover;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      opacity: 0.1;
+      z-index: -1;
+    }
+  </style>
+  <div class="container mt-5">
+        <div class="row">
+            <div class="col-lg-5 col-sm-12 mx-auto">
+                <div class="custom-form">
+                    <h2>Newton</h2>
+                    <form method="POST">
+                      {% csrf_token %}
+                      <div class="form-group">
+                        <label for="input5">Función</label>
+                        <input type="text" name="funcion" class="form-control" id="input5" placeholder="Pelu, ponga la función ej((1/x)-30+x**2)" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="input2">X0:</label>
+                        <input type="text" name="x0" class="form-control" id="input2" placeholder="" required>
+                      </div>
+                      <div class="form-group">
+                        <label>Tipo de tolerancia:</label>
+                        <select name="tipo_de_tolerancia" class="form-control">
+                            <option style="color: #000000" value="1">Decimales correctos</option>
+                            <option style="color: #000000" value="2">Cifras Significativas</option>
+                        </select>
+                      </div>
+                        <div class="form-group">
+                            <label>Número de tolerancia:</label>
+                            <input type="number" name="numero_de_tolerancia" class="form-control" placeholder=" ej(5)">
+                        </div>
+                        <div class="form-group">
+                            <label for="input4">Iteraciones:</label>
+                            <input type="number" name="iteraciones" class="form-control" id="input4" placeholder="" required>
+                        </div>
+                      <button type="submit" class="mt-2 btn btn-primary">Al pelo</button>
+                    </form>
+                </div>
+                {% if grafica %}
+                <div class="mt-4">
+                  <h4 class="text-center">Gráfica</h4>
+                  <img style="position: relative; right: 90px; width: 600px;" src="{{ grafica }}">
+                </div>
+                {% endif %}
+            </div>
+            <div class="col-lg-7 col-sm-12 data_frame">
+                <div class="mb-1">
+                  {% if mensaje %}
+                    {{ mensaje }}
+                  {% endif %}
+                </div>
+                <table class="table table-striped table-bordered table-hover">
+                  <thead class="thead-dark">
+                      <tr class="text-center">
+                          {% for col in df.columns %}
+                              <th>{{ col }}</th>
+                          {% endfor %}
+                      </tr>
+                  </thead>
+                  <tbody>
+                      {% for index, row in df.iterrows %}
+                          <tr class="text-center">
+                              {% for cell in row %}
+                                  <td>{{ cell }}</td>
+                              {% endfor %}
+                          </tr>
+                      {% endfor %}
+                  </tbody>
+              </table>
+              
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+

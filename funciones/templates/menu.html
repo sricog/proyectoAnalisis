@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Menu
+{% endblock %}
+
+{% block content %}
+    <style>
+        button:hover{
+            box-shadow: 0 0 0 0.2rem rgba(18, 243, 70, 0.5);
+        }
+    </style>
+    <h2 class="text-center mt-2">Proyecto ANALísis Numérico</h2>
+    <h3 class="text-center mt-2">La buena pelu</h3>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-12"> <!-- Cambié de col-md-4 a col-md-12 -->
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title text-center">CAPÍTULO 1</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row"> <!-- Contenedor de la fila -->
+                            <div class="col-md-2">
+                                <a href="{% url 'biseccion' %}" class="btn btn-lg btn-block" style="background-color: #ef4f4f;  border-color: #ef4f4f;font-family: 'Impact';">Bisección</a>
+                            </div>
+                            <div class="col-md-2">
+                                <a href="{% url 'regla_falsa' %}" class="btn btn-lg btn-block" style="background-color: #ef4f4f; border-color: #ef4f4f;font-family: 'Impact';">Regla falsa</a>
+                            </div>
+                            <div class="col-md-2">
+                                <a href="{% url 'punto_fijo' %}" class="btn btn-lg btn-block" style="background-color: #ef4f4f; border-color: #ef4f4f;font-family: 'Impact';">Punto fijo</a>
+                            </div>
+                            <div class="col-md-2">
+                                <a href="{% url 'newton' %}" class="btn btn-lg btn-block" style="background-color: #ef4f4f; border-color: #ef4f4f;font-family: 'Impact';">Newton</a>
+                            </div>
+                            <div class="col-md-2">
+                                <a href="{% url 'raices_multiples' %}" class="btn btn-lg btn-block" style="background-color: #ef4f4f; border-color: #ef4f4f;font-family: 'Impact';">Raíces multiples</a>
+                            </div>
+                            <div class="col-md-2">
+                                <a href="{% url 'secante' %}" class="btn btn-lg btn-block" style="background-color: #ef4f4f; border-color: #ef4f4f;font-family: 'Impact';">Mojante</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title text-center">CAPÍTULO 2</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <a href="{% url 'jacobi' %}" class="btn btn-lg btn-block" style="background-color: #ef4f4f; border-color: #ef4f4f; margin-bottom: 10px;font-family: 'Impact';">Jacobi</a>
+                            </div>
+                            <div class="col-md-4">
+                                <a href="{% url 'gauss_seidel' %}" class="btn btn-lg btn-block" style="background-color: #ef4f4f; border-color: #ef4f4f; margin-bottom: 10px;font-family: 'Impact';">Gauss Seidel</a>
+                            </div>
+                            <div class="col-md-4">
+                                <a href="{% url 'SOR' %}" class="btn btn-lg btn-block" style="background-color: #ef4f4f; border-color: #ef4f4f; margin-bottom: 10px;font-family: 'Impact';">SOR</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title text-center">CAPÍTULO 3</h5>
+                        <br>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <a href="{% url 'vandermonde' %}" class="btn btn-lg btn-block" style="width: 100%; background-color: #ef4f4f; border-color: #ef4f4f; margin-bottom: 10px;font-family: 'Impact';">Vandermonde</a>
+                            </div>
+                            <div class="col-md-3">
+                                <a href="{% url 'newton_diferencias_divididas' %}" class="btn btn-lg btn-block" style="width: 100%; background-color: #ef4f4f; border-color: #ef4f4f; margin-bottom: 10px;font-family: 'Impact';">Newton diferencias divididas</a>
+                            </div>
+                            <div class="col-md-3">
+                                <a href="{% url 'lagrange' %}" class="btn btn-lg btn-block" style="width: 100%; background-color: #ef4f4f; border-color: #ef4f4f; margin-bottom: 10px;font-family: 'Impact';">Lagrange</a>
+                            </div>
+                            <div class="col-md-3">
+                                <a href="{% url 'spline' %}" class="btn btn-lg btn-block" style="width: 100%; background-color: #ef4f4f; border-color: #ef4f4f; margin-bottom: 10px;font-family: 'Impact';">Spline</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+      
+{% endblock %}
